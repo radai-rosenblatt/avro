@@ -23,7 +23,7 @@
   <parent>
     <artifactId>avro-parent</artifactId>
     <groupId>org.apache.avro</groupId>
-    <version>1.7.7</version>
+    <version>1.7.7-fix</version>
     <relativePath>../</relativePath>
   </parent>
 
@@ -121,7 +121,7 @@
       <classifier>tests</classifier>
       <version>${project.version}</version>
     </dependency>
-    <dependency>     
+    <dependency>
       <groupId>org.easymock</groupId>
       <artifactId>easymock</artifactId>
       <scope>test</scope>
@@ -140,7 +140,7 @@
       <artifactId>jackson-mapper-asl</artifactId>
     </dependency>
   </dependencies>
-  
+
   <profiles>
      <profile>
       <id>hadoop1</id>

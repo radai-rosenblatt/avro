@@ -55,7 +55,7 @@ public class ThriftData extends GenericData {
   private static final ThriftData INSTANCE = new ThriftData();
 
   protected ThriftData() {}
-  
+
   /** Return the singleton instance. */
   public static ThriftData get() { return INSTANCE; }
 
@@ -103,7 +103,7 @@ public class ThriftData extends GenericData {
     if (fields == null) {                           // cache miss
       fields = new TFieldIdEnum[s.getFields().size()];
       Class c = r.getClass();
-      for (TFieldIdEnum f : FieldMetaData.getStructMetaDataMap(c).keySet())
+      for (TFieldIdEnum f : ((Map<? extends TFieldIdEnum, FieldMetaData>)FieldMetaData.getStructMetaDataMap(c)).keySet())
         fields[s.getField(f.getFieldName()).pos()] = f;
       fieldCache.put(s, fields);                  // update cache
     }
@@ -181,7 +181,7 @@ public class ThriftData extends GenericData {
                                        Throwable.class.isAssignableFrom(c));
           List<Field> fields = new ArrayList<Field>();
           for (FieldMetaData f :
-                 FieldMetaData.getStructMetaDataMap(c).values()) {
+              ((Map<? extends TFieldIdEnum, FieldMetaData>)FieldMetaData.getStructMetaDataMap(c)).values()) {
             Schema s = getSchema(f.valueMetaData);
             if (f.requirementType == TFieldRequirementType.OPTIONAL
                 && (s.getType() != Schema.Type.UNION))

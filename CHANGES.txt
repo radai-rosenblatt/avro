@@ -1,5 +1,11 @@
 Avro Change Log
 
+Avro 1.7.7-fix (aug 2016)
+
+  BUG FIXES
+
+    AVRO-1901. Java: catch fully-qualified java.lang.Exception in generated code
+
 Avro 1.7.7 (23 July 2014)
 
   NEW FEATURES
